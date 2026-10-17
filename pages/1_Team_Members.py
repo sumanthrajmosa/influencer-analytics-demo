@@ -32,7 +32,7 @@ MEMBERS = [
 st.set_page_config(page_title="Team Members", page_icon="👥", layout="wide")
 st.title("Meet Team 8")
 st.caption("Influencer Campaign Intelligence")
-st.page_link("streamlit_dashboard.py", label="Back to project dashboard", icon="📊")
+st.markdown("[📊 Back to project dashboard](/)")
 st.markdown(f"**Affiliation:** {AFFILIATION}")
 
 st.markdown(
