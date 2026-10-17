@@ -8,7 +8,9 @@ ROOT = Path(__file__).resolve().parent
 CAMPAIGNS_PATH = ROOT / "influencer_campaigns_project_ready_enriched.csv"
 METRICS_PATH = ROOT / "evaluation" / "model_comparison.csv"
 PREDICTIONS_PATH = ROOT / "evaluation" / "best_model_predictions.csv"
-DEPLOYMENT_URL = ""
+DEPLOYMENT_URL = (
+    "https://influencer-analytics-demo-tbbuqs3hutzadswmco2hvj.streamlit.app/"
+)
 
 CAMPAIGN_COLUMNS = [
     "campaign_id",
