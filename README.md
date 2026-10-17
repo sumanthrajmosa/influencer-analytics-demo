@@ -6,6 +6,15 @@ the prototype results are not validated real-world forecasts.
 
 [Open the live demo](https://influencer-analytics-demo-tbbuqs3hutzadswmco2hvj.streamlit.app/)
 
+## Published dataset
+
+The source post-level dataset is published on [IEEE DataPort](https://ieee-dataport.org/documents/instagram-influencer-campaign-metrics-dataset)
+with DOI [10.21227/5ayf-k709](https://doi.org/10.21227/5ayf-k709). It contains
+46 public post records, but no verified clicks, purchases, revenue, or campaign
+dates. The enriched CSV used for model experiments is a separate derivative
+with synthetic outcomes and assigned campaign order; it should not be confused
+with the published source dataset.
+
 ## Run locally
 
 ```powershell

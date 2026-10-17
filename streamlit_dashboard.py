@@ -87,8 +87,8 @@ def require_columns(frame: pd.DataFrame, columns: list[str], label: str) -> bool
 
 st.title("Influencer Campaign Intelligence")
 st.caption(
-    "A small end-to-end demo: explore campaign performance, then compare "
-    "sequence models on held-out influencers."
+    "Explore influencer post metrics and compare sequence-model baselines "
+    "using the dataset's assigned campaign order."
 )
 st.page_link("pages/1_Team_Members.py", label="Meet the team", icon="👥")
 
@@ -157,9 +157,11 @@ if selected_creator != "All creators":
     filtered = filtered[filtered["influencer_id"] == selected_creator]
 
 st.info(
-    "**Data note:** campaign purchase, revenue and ROI outcomes include "
-    "synthetic estimates. Model scores are a prototype evaluation, not "
-    "evidence of real-world performance."
+    "**Data note:** the [published IEEE DataPort source](https://ieee-dataport.org/documents/instagram-influencer-campaign-metrics-dataset) "
+    "contains public post metrics, not verified clicks or purchases. The "
+    "enriched model dataset adds synthetic outcome estimates. Its campaign "
+    "numbers are assigned order, not verified dates; scores are exploratory, "
+    "not real-world evidence."
 )
 
 kpis = st.columns(4)
@@ -186,7 +188,7 @@ with left:
         st.bar_chart(creator_views, horizontal=True, color="#168C78")
 
 with right:
-    st.subheader("Performance by campaign sequence")
+    st.subheader("Performance by assigned campaign number")
     if "campaign_number" in filtered.columns:
         sequence = (
             filtered.dropna(subset=["campaign_number"])
@@ -201,7 +203,10 @@ with right:
         st.caption("No campaign-sequence data is available for these filters.")
     else:
         st.line_chart(sequence[["average_views"]], color="#E47C45")
-        st.caption("Average views grouped by each creator's campaign number.")
+        st.caption(
+            "Average views by dataset-assigned order; the source has no "
+            "verified calendar dates."
+        )
 
 with st.expander("Campaign records", expanded=False):
     display_columns = [
@@ -232,8 +237,9 @@ with st.expander("Campaign records", expanded=False):
 st.divider()
 st.header("Sequence model evaluation")
 st.caption(
-    "LSTM, GRU and BiLSTM models predict purchases from chronological campaign "
-    "features. Influencers—not individual campaigns—are held out for testing."
+    "LSTM, GRU and BiLSTM models use campaign-number order and a creator-held-out "
+    "split. The published post dataset has no verified campaign dates, so this "
+    "is a sequence prototype, not a calendar-time forecast."
 )
 
 if not METRICS_PATH.is_file() or not PREDICTIONS_PATH.is_file():
