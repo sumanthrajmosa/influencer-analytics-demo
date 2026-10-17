@@ -11,7 +11,7 @@ MEMBERS = [
     {
         "name": "Mosa Sumanthraj",
         "roll_number": "CB.SC.U4CSE23227",
-        "email": "cb.sc.u4cse23227@cb.amrita.edu",
+        "email": "cb.sc.u4cse23227@cb.students.amrita.edu",
         "photo": ROOT / "Images" / "227.png",
     },
     {
